@@ -13,10 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Guest Routes
+
 Route::get('/', function () {
     return view('welcome');
 });
 
+Route:resource('products', BlogPostController::class)->only(['index', 'show']);
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Admin Routes
+
+
+Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->group(function(){
+    Route::get('/', 'Home Controller@index')->name('dashboard');
+    Route::resource('blogposts', BlogPostController::class); 
+});
