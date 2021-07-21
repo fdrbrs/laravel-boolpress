@@ -16,10 +16,10 @@ use Illuminate\Support\Facades\Route;
 // Guest Routes
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('guest.welcome');
 });
 
-Route:resource('products', BlogPostController::class)->only(['index', 'show']);
+Route::resource('blogposts', BlogPostController::class)->only(['index', 'show']);
 
 Auth::routes();
 
@@ -27,6 +27,6 @@ Auth::routes();
 
 
 Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->group(function(){
-    Route::get('/', 'Home Controller@index')->name('dashboard');
+    Route::get('/', 'HomeController@index')->name('dashboard');
     Route::resource('blogposts', BlogPostController::class); 
 });
