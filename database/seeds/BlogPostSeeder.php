@@ -19,6 +19,7 @@ class BlogPostSeeder extends Seeder
             $blogpost->author = $faker->userName();
             $blogpost->date = $faker->dateTimeThisYear();
             $blogpost->image = $faker->imageUrl(640, 480, 'POST IMAGE', true);
+            $blogpost->save();
         }
     }
 }
