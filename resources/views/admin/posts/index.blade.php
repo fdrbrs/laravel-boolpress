@@ -25,7 +25,7 @@
             @foreach($posts as $post)
                 <tr>
                     <td scope="row">{{$post->id}}</td>
-                    <td><img src="{{$post->image}}" alt="{{$post->title}}"></td>
+                    <td><img width="150" src="{{$post->image}}" alt="{{$post->title}}"></td>
                     <td>{{$post->title}}</td>
                     <td>
                         <a href="{{route('admin.posts.show', $post->id)}}" class="btn btn-primary">
