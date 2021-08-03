@@ -13,9 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('welcome');
-});
+}); */
+
+/* non connesse ad un modello */
+Route::get('/', 'PageController@index');
+Route::get('about','PageController@about');
+Route::get('contacts', 'PageController@contacts');
+
+/* pagine posts */
+Route::get('/posts', 'PostController@index')->name('posts.index');
+Route::get('posts/{post}', 'PostController@show')->name('posts.show');
 
 Auth::routes();
 
