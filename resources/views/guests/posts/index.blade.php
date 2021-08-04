@@ -1,9 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>All the Posts</h1>
 
-<div class="container">
+<div class="jumbotron">
+    <h1 class="display-3 text-center">All Posts</h1>
+</div>
+
+<section class="container">
     <div class="row">
         @foreach($posts as $post)
         <div class="col-md-4">
@@ -19,5 +22,5 @@
         
     </div>
     {{$posts->links()}}
-</div>
+</section>
 @endsection
