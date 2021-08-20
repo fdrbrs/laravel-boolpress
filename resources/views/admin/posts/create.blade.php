@@ -13,7 +13,7 @@
     </div>
 @endif
 
-<form action="{{route('admin.posts.store')}}" method="post">
+<form action="{{route('admin.posts.store')}}" method="post" enctype="multipart/form-data">
     @csrf
 
     <div class="form-group">
@@ -22,11 +22,17 @@
       <small id="titleHelper" class="text-muted">Enter the title for the new post, 255 char MAX</small>
     </div>
 
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label for="image">Image</label>
       <input type="text" name="image" id="image" class="form-control @error('image') is-invalid @enderror" placeholder="https://" aria-describedby="imageHelper" value="{{old('image')}}">
       <small id="helpId" class="text-muted">Enter the image URL for the new post, 255 char MAX</small>
+    </div> -->
+      
+    <div class="form-group">
+      <label for="image">Image</label>
+      <input type="file" name="image" id="image">
     </div>
+    
 
     <div class="form-group">
       <label for="body">Text</label>

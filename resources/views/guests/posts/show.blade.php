@@ -11,7 +11,7 @@
         <i class="fas fa-arrow-left fa-sm fa-fw"></i>
         Back to all posts
     </a>
-    <img src="{{$post->image}}" alt="{{$post->title}}" class="img-fluid d-block">
+    <img src="{{asset('storage/' . $post->image)}}" alt="{{$post->title}}" class="img-fluid d-block">
     <h1 class="display-1">{{$post->title}}</h1>
     <p class="lead">{{$post->body}}</p>
 </div>

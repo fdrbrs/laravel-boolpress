@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'PageController@index')->name('home');
 Route::get('about','PageController@about')->name('about');
 Route::get('contacts', 'PageController@contacts')->name('contacts');
+Route::post('contacts', 'PageController@sendContactForm')->name('contacts.send');
 
 /* pagine posts */
 Route::get('/posts', 'PostController@index')->name('posts.index');
@@ -32,3 +33,6 @@ Route::prefix('admin')->middleware('auth')->namespace('Admin')->name('admin.')->
     Route::get('/', 'HomeController@index')->name('dashboard'); //admin.dashboard
     Route::resource('posts', PostController::class);
 });
+
+//Rotta per chiudere la registrazione al sito di nuovi utenti
+//Auth::routes(['register' => false]);
